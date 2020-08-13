@@ -1,0 +1,46 @@
+.filter-block {
+  border-bottom: 1px solid #333;
+  padding-bottom: 30px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.filter-block__title {
+  padding: 0 20px;
+  color: var(--text-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-block__title:hover {
+  color: #fff;
+}
+
+.filter-block__items {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.filter-block__items li {
+  padding: 5px 20px;
+  font-size: 12px;
+  
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.filter-block__items li a {
+  color: var(--text-color);
+  opacity: .5;
+  
+  width: 100%;
+  display: block;
+}
+
+.filter-block__items li:hover a {
+  color: #fff;
+  opacity: 1;
+}

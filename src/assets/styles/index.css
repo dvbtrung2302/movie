@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+:root {
+  --menu-bg-color: #282828;
+  --bg-color: #1f1f1f;
+  --text-color: #ececff;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: #fff;
+  /* height: 110vh; */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* responsive */
+
+@media screen and (max-width: 1199px) {
+  .topbar__search {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 100%;
+    order: 3;
+  }
+  .topbar .sidebar {
+    padding: 0;
+    z-index: 3;
+  }
+}

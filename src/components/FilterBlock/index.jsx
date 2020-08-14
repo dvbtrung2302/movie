@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Collapse } from 'reactstrap';
 import { convertSlug } from '../../utils/func';
 
-import './style.css';
+import './style.scss';
 
 FilterBlock.propTypes = {
   title: PropTypes.string,

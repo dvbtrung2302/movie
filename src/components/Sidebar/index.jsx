@@ -3,22 +3,25 @@ import {
 	FaHome,
 	FaImdb,
 	FaFilm,
-	FaTv
+	FaTv,
+	FaAngleLeft
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import './style.css';
+import './style.scss';
 import { GENRE_ITEMS, COUNTRY_ITEMS, SIDEBAR_FOOTER_LINKS } from '../../constants/global';
 import FilterBlock from '../FilterBlock';
 
 Sidebar.propTypes = {
   isHamburgerClick: PropTypes.bool,
-  width: PropTypes.number,
+	width: PropTypes.number,
+	setHamburgerClick: PropTypes.func,
 };
 
 Sidebar.defaultProps = {
-  isHamburgerClick: true
+	isHamburgerClick: true,
+	width: 0
 }
 
 const navs = [
@@ -29,17 +32,25 @@ const navs = [
 ];
 
 function Sidebar(props) {
-  const { isHamburgerClick } = props;
+  const { isHamburgerClick, setHamburgerClick, width } = props;
 
 	return (
 		<div className={ isHamburgerClick ? 'sidebar sidebar--active' : 'sidebar' }>
+			{/* close side bar */}
+			{
+				(isHamburgerClick && width < 1199) &&
+				<div className="sidebar__close-btn" onClick={setHamburgerClick}>
+					<FaAngleLeft size={18} />
+					<span>Close sidebar</span>
+				</div>
+			}
 			{/* menu */}
 			<ul className="sidebar__menu">
 				{
 					navs.map(nav => 
 						<li key={nav.label}>
 							<Link to={nav.url} title={nav.label} >
-								<div className="menu__icon">
+								<div className="sidebar__menu__icon">
 									{ nav.icon }
 								</div>
 								<span>{ nav.label }</span>

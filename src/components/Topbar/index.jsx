@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaBars, FaUser } from 'react-icons/fa';
 import { 
     Container, 
     Row,
@@ -11,10 +11,10 @@ import {
     Button
 } from 'reactstrap';
 
-import './style.css';
-import Burger from '../Hamburger';
+import './style.scss';
 import Sidebar from '../Sidebar';
 import useWindowSize from '../../hooks/useWindowSize';
+import Images from '../../constants/images';
 
 Topbar.propTypes = {
     
@@ -32,15 +32,34 @@ function Topbar(props) {
     }
   }, [setHamburgerClick, width])
 
+	const onHamburgerClick = () => {
+		if (width < 1199 && width !==0) {
+			if (!isHamburgerClick) {
+				document.body.style.overflow = 'hidden';
+				setHamburgerClick(!isHamburgerClick);
+			} else {
+				document.body.style.overflow = 'unset';
+				setHamburgerClick(!isHamburgerClick);
+			}
+		} else {
+			if (isHamburgerClick) {
+				document.body.style.padding = '80px 0 0 0';
+			} else {
+				document.body.style.padding = '80px 0 0 240px';
+			}
+			setHamburgerClick(!isHamburgerClick);
+		}
+	}
+
 	return (
 		<div className="topbar">
 			<Container fluid className="topbar__main">
 				<Row className="m-0 d-flex align-items-center justify-content-between flex-wrap">
-					<div className="topbar__left">
-						<Burger setHamburgerClick={setHamburgerClick} isHamburgerClick={isHamburgerClick} />
-						<div className="topbar__logo">
+					<div className="topbar__main__left">
+						<FaBars onClick={onHamburgerClick} size={22} />
+						<div className="topbar__main__logo">
 								<Link to="/" className="w-100 h-100" title="TinyZone">
-										<img src="https://res.cloudinary.com/dofqucuyy/image/upload/v1597290299/logo-square_irisb0.png" alt="logo"/>
+										<img src={Images.LOGO} alt="logo"/>
 										<span>TinyZone</span>
 								</Link>
 						</div>
@@ -57,10 +76,12 @@ function Topbar(props) {
 					</div>
 					<div className="topbar__user">
 						<span>Login / Register</span>
+						<FaUser size={22} />
 					</div>
 				</Row>
 			</Container>
-      <Sidebar isHamburgerClick={isHamburgerClick} width={width} />
+      <Sidebar isHamburgerClick={isHamburgerClick} width={width} setHamburgerClick={onHamburgerClick} />
+			<div className={isHamburgerClick ? 'topbar__bg--active' : ''} onClick={onHamburgerClick}></div>
 		</div>
 	);
 }

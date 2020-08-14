@@ -1,0 +1,115 @@
+.topbar {
+	&__main {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		
+		width: 100%;
+		background-color: var(--menu-bg-color);
+		padding: 10px 20px;
+
+		&__left {
+			display: flex;
+			align-items: center;
+
+			svg {
+				cursor: pointer;
+			}
+		}
+
+		&__logo {
+			height: 30px;
+			margin-left: 20px;
+			display: flex;
+			align-items: center;
+
+			img {
+				height: 100%;
+				margin-right: 10px;
+			}
+
+			span {
+				font-size: 1.2em;
+				font-weight: 600;
+			}
+		}
+	}
+
+	&__search {
+		width: 600px;
+
+		.form-control {
+			background-color: var(--bg-color);
+			border: none;
+			color: #fff;
+
+			&:focus {
+				box-shadow: none;
+			}
+
+			&::placeholder {
+				font-size: 14px;
+			}
+		}
+
+		.btn-secondary {
+			padding: 5px 30px;
+			background-color: #393939;
+			border: none;
+			border-radius: unset;
+		}
+		
+		.form-inline {
+			.form-group {
+				display: flex;
+				flex: 0 0 auto;
+				flex-flow: row wrap;
+				align-items: center;
+				margin-bottom: 0;
+				flex-wrap: nowrap;
+			}
+		}
+
+		svg {
+			color: #ccc;
+
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+
+	&__user {
+		padding: 10px;
+		cursor: pointer;
+		transition: all .3s;
+
+		&:hover {
+			background-color: #333;
+		}
+
+		span {
+			font-weight: 400;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+		}
+
+		svg {
+			display: none;
+		}
+	}
+
+	&__bg {
+		&--active {
+			background-color: rgba(0,0,0,.5);
+			display: none;
+			z-index: 3;
+			
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
+}
+
